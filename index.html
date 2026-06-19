@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Mizan Teknologi Inovatif - Sovereign Deep-Tech Infrastructure</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a; 
+            --bg-card: rgba(30, 41, 59, 0.9); 
+            --text-primary: #f8fafc; 
+            --text-secondary: #94a3b8; 
+            --accent-green: #4ade80; 
+            --accent-blue: #38bdf8; 
+            --border: #334155; 
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-dark);
+            overflow-x: hidden;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('site-background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            filter: grayscale(20%) brightness(40%);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.95) 90%);
+            z-index: -1;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+
+        header img {
+            max-width: 140px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+        }
+
+        header h2 {
+            font-size: 1.1rem;
+            color: var(--accent-green);
+            font-weight: 500;
+            margin: 0 0 20px 0;
+            letter-spacing: 0.02em;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 630px;
+        }
+
+        .tech-showcase {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .tech-showcase h3 {
+            font-size: 1.25rem;
+            margin: 0 0 5px 0;
+            font-weight: 600;
+            align-self: flex-start;
+        }
+
+        .tech-showcase p.subheading {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0 0 25px 0;
+            align-self: flex-start;
+        }
+
+        .tech-showcase img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .data-validation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .validation-card {
+            flex: 1 1 350px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .validation-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .validation-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .validation-card .status {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            background-color: rgba(74, 222, 128, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .validation-card p.details {
+            margin: 15px 0 0 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 20px;
+        }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+            display: inline-block;
+            background-color: rgba(15, 23, 42, 0.5);
+        }
+
+        footer a:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+            border-color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-container"></div>
+    <div class="overlay"></div>
+
+    <main>
+        <header>
+            <img src="logo.png" alt="AMZ Technology Logo">
+            <h1>PT Al-Mizan Teknologi Inovatif</h1>
+            <h2>Deep-Tech Intellectual Property Infrastructure</h2>
+            <p>
+                Sovereign holder of the Al-Mizan protocol: a verifiable, modular, 
+                and non-toxic biopolymer ecosystem. Developing advanced agricultural solutions 
+                backed by institutional validation.
+            </p>
+        </header>
+
+        <section class="tech-showcase">
+            <h3>I. Architectural Modular Composition</h3>
+            <p class="subheading">Chitosan-Lipid biopolymer matrix structure and enzymatic degradation cycle.</p>
+            <img src="technical-graphic.jpg" alt="Technical Infographic">
+        </section>
+
+        <section class="data-validation">
+            
+            <div class="validation-card">
+                <div>
+                    <h4>II. Intellectual Property Status</h4>
+                    <div class="value">
+                        P00202605855
+                        <span class="status">Formalities Met</span>
+                    </div>
+                </div>
+                <p class="details">
+                    Indonesian Patent Application (DJKI)[cite: 1]. Registered Title: 
+                    <em>Sistem Wadah Pertanian dan Kehutanan Biodegradabel Berlapis Kitosan-Fosfolipid 
+                    dan Metode Pembuatannya.</em>[cite: 1]
+                </p>
+            </div>
+
+            <div class="validation-card">
+                <div>
+                    <h4>III. Institutional Communications</h4>
+                    <div class="value">Secure Routing</div>
+                </div>
+                <p class="details">
+                    Official corporate routing network is online. Configured exclusively for professional, 
+                    enterprise, and grant coordination inquiries.
+                </p>
+            </div>
+
+        </section>
+
+        <footer>
+            <a href="mailto:steward@almizantech.com">Execute Inquiry: steward@almizantech.com</a>
+        </footer>
+    </main>
+
+</body>
+</html>
