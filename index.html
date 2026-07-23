@@ -1,95 +1,280 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
+<html lang="en">
+<head><style>
+  body {
+    background-image: url('site-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AL-MIZAN | Sovereign Agri-Climate Infrastructure</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Al-Mizan Teknologi Inovatif - Sovereign Deep-Tech Infrastructure</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #94a3b8; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .glass { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        :root {
+            --bg-dark: #0f172a; 
+            --bg-card: rgba(30, 41, 59, 0.9); 
+            --text-primary: #f8fafc; 
+            --text-secondary: #94a3b8; 
+            --accent-green: #4ade80; 
+            --accent-blue: #38bdf8; 
+            --border: #334155; 
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: var(--text-primary);
+            background-color: var(--bg-dark);
+            overflow-x: hidden;
+        }
+
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('site-background.jpg'); 
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            filter: grayscale(20%) brightness(40%);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.95) 90%);
+            z-index: -1;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+
+        header img {
+            max-width: 140px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+        }
+
+        header h2 {
+            font-size: 1.1rem;
+            color: var(--accent-green);
+            font-weight: 500;
+            margin: 0 0 20px 0;
+            letter-spacing: 0.02em;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 auto;
+            max-width: 630px;
+        }
+
+        .tech-showcase {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 900px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .tech-showcase h3 {
+            font-size: 1.25rem;
+            margin: 0 0 5px 0;
+            font-weight: 600;
+            align-self: flex-start;
+        }
+
+        .tech-showcase p.subheading {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0 0 25px 0;
+            align-self: flex-start;
+        }
+
+        .tech-showcase img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .data-validation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .validation-card {
+            flex: 1 1 350px;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .validation-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .validation-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .validation-card .status {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            background-color: rgba(74, 222, 128, 0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .validation-card p.details {
+            margin: 15px 0 0 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: auto;
+            padding: 20px;
+        }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+            display: inline-block;
+            background-color: rgba(15, 23, 42, 0.5);
+        }
+
+        footer a:hover {
+            background-color: rgba(56, 189, 248, 0.1);
+            border-color: var(--accent-blue);
+        }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body>
 
-    <main class="max-w-4xl mx-auto space-y-8">
-        <!-- Logo & Header -->
-        <header class="text-center py-8">
-            <img src="logo.png" alt="AMZ Logo" class="mx-auto w-24 h-24 mb-6" onerror="this.style.display='none'">
-            <h1 class="text-3xl font-extrabold text-white mb-2">PT AL-MIZAN TEKNOLOGI INOVATIF</h1>
-            <p class="text-emerald-400 font-bold uppercase tracking-[0.2em] text-xs">Deep-Tech Intellectual Property Infrastructure</p>
+    <div class="background-container"></div>
+    <div class="overlay"></div>
+
+    <main>
+        <header>
+            <img src="logo.png" alt="AMZ Technology Logo">
+            <h1>PT Al-Mizan Teknologi Inovatif</h1>
+            <h2>Deep-Tech Intellectual Property Infrastructure</h2>
+            <p>
+                Sovereign holder of the Al-Mizan protocol: a verifiable, modular, 
+                and non-toxic biopolymer ecosystem. Developing advanced agricultural solutions 
+                backed by institutional validation.
+            </p>
         </header>
 
-        <!-- I. Intellectual Property -->
-        <section class="glass p-6 rounded-2xl border border-slate-800">
-            <h2 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                <span class="text-emerald-500">#</span> Intellectual Property Status
-            </h2>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Registration</p>
-                    <p class="text-md font-bold text-white">P00202605855</p>
-                    <span class="inline-block mt-2 px-2 py-1 bg-emerald-900/30 text-emerald-400 text-[9px] rounded border border-emerald-800">Formalities Met</span>
-                </div>
-                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Title</p>
-                    <p class="text-[11px] text-slate-300 italic">Sistem Wadah Pertanian dan Kehutanan Biodegradabel Berlapis Kitosan-Fosfolipid dan Metode Pembuatannya.</p>
-                </div>
-            </div>
+        <section class="tech-showcase">
+            <h3>I. Architectural Modular Composition</h3>
+            <p class="subheading">Chitosan-Lipid biopolymer matrix structure and enzymatic degradation cycle.</p>
+            <img src="technical-graphic.jpg" alt="Technical Infographic">
         </section>
 
-        <!-- IV. Strategic Roadmap -->
-        <section class="glass p-6 rounded-2xl border border-emerald-500/20">
-            <h2 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
-                <span class="text-emerald-500">#</span> Strategic Roadmap
-            </h2>
-            <div class="space-y-3">
-                <div class="flex gap-3 text-xs">
-                    <div class="w-1 bg-emerald-500 rounded-full"></div>
-                    <div><span class="text-white font-bold">Phase 1: Field Validation (TRL-8).</span> Sumbing Pilot Deployment Complete.</div>
+        <section class="data-validation">
+            
+            <div class="validation-card">
+                <div>
+                    <h4>II. Intellectual Property Status</h4>
+                    <div class="value">
+                        P00202605855
+                        <span class="status">Formalities Met</span>
+                    </div>
                 </div>
-                <div class="flex gap-3 text-xs">
-                    <div class="w-1 bg-slate-600 rounded-full"></div>
-                    <div><span class="text-slate-400 font-bold">Phase 2: Industrial Scaling.</span> Automated Bio-Polybag Production Line.</div>
-                </div>
-                <div class="flex gap-3 text-xs">
-                    <div class="w-1 bg-slate-600 rounded-full"></div>
-                    <div><span class="text-slate-400 font-bold">Phase 3: Institutional dMRV.</span> Automated Global Carbon Registry Minting.</div>
-                </div>
+                <p class="details">
+                    Indonesian Patent Application (DJKI)[cite: 1]. Registered Title: 
+                    <em>Sistem Wadah Pertanian dan Kehutanan Biodegradabel Berlapis Kitosan-Fosfolipid 
+                    dan Metode Pembuatannya.</em>[cite: 1]
+                </p>
             </div>
+
+            <div class="validation-card">
+                <div>
+                    <h4>III. Institutional Communications</h4>
+                    <div class="value">Secure Routing</div>
+                </div>
+                <p class="details">
+                    Official corporate routing network is online. Configured exclusively for professional, 
+                    enterprise, and grant coordination inquiries.
+                </p>
+            </div>
+
         </section>
 
-        <!-- Terminal Dashboard -->
-        <section class="bg-black border border-slate-800 rounded-xl p-6 font-mono text-[11px] overflow-hidden shadow-2xl">
-            <div class="flex items-center gap-2 text-emerald-500 mb-4 border-b border-slate-800 pb-2">
-                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                <span>AMZ SOVEREIGN OS // LIVE TELEMETRY</span>
-            </div>
-            <div id="terminal-logs" class="space-y-2 text-emerald-500/70 h-48 overflow-y-hidden">
-                <div>[10:00:01] NODE-01 HASH: a1b2c3d4... VERIFIED</div>
-                <div>[10:00:05] SENSING: STABLE ATTRACTOR</div>
-            </div>
-        </section>
-
-        <footer class="text-center pt-4 border-t border-slate-800">
-            <a href="mailto:steward@almizantech.com" class="text-emerald-400 border border-emerald-500/30 px-6 py-2 rounded-full bg-emerald-500/5 hover:bg-emerald-500/20 font-mono text-sm transition-all">
-                steward@almizantech.com
-            </a>
+        <footer>
+            <a href="mailto:steward@almizantech.com">Execute Inquiry: steward@almizantech.com</a>
         </footer>
     </main>
 
-    <script>
-        const logs = document.getElementById('terminal-logs');
-        function addLog() {
-            const hash = Math.random().toString(36).substring(2, 15);
-            const div = document.createElement('div');
-            div.textContent = `[${new Date().toLocaleTimeString()}] NODE-01 HASH: ${hash}... VERIFIED`;
-            logs.prepend(div);
-            if (logs.children.length > 8) logs.removeChild(logs.lastChild);
-        }
-        setInterval(addLog, 2000);
-    </script>
 </body>
 </html>
