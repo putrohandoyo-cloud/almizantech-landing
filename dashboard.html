@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOVEREIGN OS // LIVE TELEMETRY</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -9,7 +10,6 @@
     <div class="max-w-4xl mx-auto">
         <a href="index.html" class="text-slate-500 hover:text-white mb-8 inline-block">← Back to Landing</a>
         
-        <!-- Live Ticker Stats -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             <div class="bg-slate-900 border border-emerald-900/50 p-4 rounded-xl">
                 <p class="text-slate-500 uppercase">Carbon Sequestered</p>
@@ -21,7 +21,6 @@
             </div>
         </div>
 
-        <!-- Terminal Section -->
         <section class="bg-black border border-slate-800 rounded-xl p-6 shadow-2xl">
             <div class="flex items-center gap-2 text-emerald-500 mb-4 border-b border-slate-800 pb-2">
                 <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
@@ -33,13 +32,13 @@
             </div>
         </section>
 
-        <footer class="mt-12 text-center text-slate-600">
+        <footer class="mt-12 text-center text-slate-600 border-t border-slate-800 pt-8">
             <p>PT Al-Mizan Teknologi Inovatif | steward@almizantech.com</p>
+            <p class="mt-2 text-xs">&copy; 2026 All Rights Reserved.</p>
         </footer>
     </div>
 
     <script>
-        // Carbon Ticker Logic
         let carbon = 12450.50;
         function updateStats() {
             carbon += 0.02;
@@ -47,7 +46,6 @@
         }
         setInterval(updateStats, 2000);
 
-        // Terminal Log Logic
         const logs = document.getElementById('terminal-logs');
         function addLog() {
             const hash = Math.random().toString(36).substring(2, 15);
