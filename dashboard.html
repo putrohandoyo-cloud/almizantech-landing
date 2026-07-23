@@ -2,30 +2,52 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>SOVEREIGN OS // LIVE</title>
+    <title>SOVEREIGN OS // LIVE TELEMETRY</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #000; color: #10b981; font-family: monospace; }
-        .terminal-text { color: #10b981; opacity: 0.8; }
-    </style>
 </head>
-<body class="p-8">
+<body class="bg-black p-8 font-mono text-[11px] md:text-sm">
     <div class="max-w-4xl mx-auto">
         <a href="index.html" class="text-slate-500 hover:text-white mb-8 inline-block">← Back to Landing</a>
         
-        <section class="bg-black border border-slate-800 rounded-xl p-6 font-mono text-[11px] shadow-2xl">
+        <!-- Live Ticker Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-slate-900 border border-emerald-900/50 p-4 rounded-xl">
+                <p class="text-slate-500 uppercase">Carbon Sequestered</p>
+                <p id="carbon-counter" class="text-2xl text-emerald-400 font-bold">12,450.50 Ton CO₂eq</p>
+            </div>
+            <div class="bg-slate-900 border border-emerald-900/50 p-4 rounded-xl">
+                <p class="text-slate-500 uppercase">Single-Use Plastics Avoided</p>
+                <p class="text-2xl text-emerald-400 font-bold">3,120 Kg</p>
+            </div>
+        </div>
+
+        <!-- Terminal Section -->
+        <section class="bg-black border border-slate-800 rounded-xl p-6 shadow-2xl">
             <div class="flex items-center gap-2 text-emerald-500 mb-4 border-b border-slate-800 pb-2">
                 <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                 <span>AMZ SOVEREIGN OS // LIVE TELEMETRY</span>
             </div>
-            <div id="terminal-logs" class="space-y-2 h-64 overflow-y-hidden">
+            <div id="terminal-logs" class="space-y-2 h-64 overflow-y-hidden text-emerald-500">
                 <div>[10:00:01] NODE-01 HASH: a1b2c3d4... VERIFIED</div>
-                <div>[10:00:05] SENSING: STABLE ATTRACTOR</div>
+                <div>[10:00:05] SENSING: STABLE ATTRACTOR (λ = -0.40)</div>
             </div>
         </section>
+
+        <footer class="mt-12 text-center text-slate-600">
+            <p>PT Al-Mizan Teknologi Inovatif | info@almizantech.com</p>
+        </footer>
     </div>
 
     <script>
+        // Carbon Ticker Logic
+        let carbon = 12450.50;
+        function updateStats() {
+            carbon += 0.02;
+            document.getElementById('carbon-counter').textContent = carbon.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + " Ton CO₂eq";
+        }
+        setInterval(updateStats, 2000);
+
+        // Terminal Log Logic
         const logs = document.getElementById('terminal-logs');
         function addLog() {
             const hash = Math.random().toString(36).substring(2, 15);
@@ -34,7 +56,7 @@
             logs.prepend(div);
             if (logs.children.length > 12) logs.removeChild(logs.lastChild);
         }
-        setInterval(addLog, 2000);
+        setInterval(addLog, 2500);
     </script>
 </body>
 </html>
