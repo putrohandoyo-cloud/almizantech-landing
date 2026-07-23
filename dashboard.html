@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>SOVEREIGN OS // LIVE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #000; color: #10b981; font-family: monospace; }
+        .terminal-text { color: #10b981; opacity: 0.8; }
+    </style>
+</head>
+<body class="p-8">
+    <div class="max-w-4xl mx-auto">
+        <a href="index.html" class="text-slate-500 hover:text-white mb-8 inline-block">← Back to Landing</a>
+        
+        <section class="bg-black border border-slate-800 rounded-xl p-6 font-mono text-[11px] shadow-2xl">
+            <div class="flex items-center gap-2 text-emerald-500 mb-4 border-b border-slate-800 pb-2">
+                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span>AMZ SOVEREIGN OS // LIVE TELEMETRY</span>
+            </div>
+            <div id="terminal-logs" class="space-y-2 h-64 overflow-y-hidden">
+                <div>[10:00:01] NODE-01 HASH: a1b2c3d4... VERIFIED</div>
+                <div>[10:00:05] SENSING: STABLE ATTRACTOR</div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const logs = document.getElementById('terminal-logs');
+        function addLog() {
+            const hash = Math.random().toString(36).substring(2, 15);
+            const div = document.createElement('div');
+            div.textContent = `[${new Date().toLocaleTimeString()}] NODE-01 HASH: ${hash}... VERIFIED`;
+            logs.prepend(div);
+            if (logs.children.length > 12) logs.removeChild(logs.lastChild);
+        }
+        setInterval(addLog, 2000);
+    </script>
+</body>
+</html>
