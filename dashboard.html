@@ -6,22 +6,23 @@
     <title>SOVEREIGN OS // LIVE TELEMETRY</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black text-slate-300 font-mono text-[11px] md:text-sm relative min-h-screen">
+<body class="bg-black text-slate-300 font-mono text-[11px] md:text-sm relative min-h-screen overflow-x-hidden">
 
-    <!-- Latar Belakang Gambar: Fokus ke BAWAH, Opacity ditingkatkan -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <img src="Sumbing Site_AMZ Technology.jpg" alt="AMZ Hardware Node" class="w-full h-full object-cover object-bottom opacity-90" onerror="this.style.display='none'">
+    <!-- Latar Belakang Gambar: Fokus ke Alat (Bawah), opacity tinggi -->
+    <div class="fixed inset-0 z-0 pointer-events-none bg-black">
+        <img src="Sumbing Site_AMZ Technology.jpg" alt="AMZ Hardware Node" class="w-full h-full object-cover object-[center_85%] opacity-90" onerror="this.style.display='none'">
     </div>
 
-    <!-- REVISI OVERLAY: Gelap di atas untuk teks, TRANSISI BENING ke bawah agar alat terlihat -->
-    <div class="fixed inset-0 z-10 bg-gradient-to-b from-black/95 via-black/60 to-transparent pointer-events-none"></div>
+    <!-- Gradien: Gelap di atas, sangat bening di bawah -->
+    <div class="fixed inset-0 z-10 bg-gradient-to-b from-black via-black/50 to-transparent pointer-events-none"></div>
 
-    <div class="relative z-20 max-w-4xl mx-auto p-6 md:p-8 pb-48"> <!-- Ditambah pb-48 agar ada ruang kosong di bawah untuk melihat alat -->
+    <div class="relative z-20 max-w-4xl mx-auto p-6 md:p-8">
         
         <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-black/60 backdrop-blur-md border border-slate-700/50 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/50 transition-all mb-8 shadow-lg">
             ← Back to Landing
         </a>
         
+        <!-- Live Data Ticker -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             <div class="bg-black/60 backdrop-blur-md border border-emerald-900/50 p-5 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.1)]">
                 <p class="text-slate-500 uppercase tracking-widest text-xs mb-1">Carbon Sequestered</p>
@@ -33,8 +34,7 @@
             </div>
         </div>
 
-        <section class="bg-black/80 backdrop-blur-md border border-slate-800 rounded-xl p-6 shadow-2xl relative overflow-hidden mb-12">
-            <!-- Dekorasi Efek Kaca -->
+        <section class="bg-black/70 backdrop-blur-md border border-slate-800 rounded-xl p-6 shadow-2xl relative overflow-hidden mb-12">
             <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-3xl rounded-full pointer-events-none"></div>
             
             <div class="flex items-center gap-2 text-emerald-500 mb-4 border-b border-slate-800 pb-3 relative z-10">
@@ -43,7 +43,7 @@
                 <span class="ml-auto text-xs text-slate-500">NODE: SUMBING-01</span>
             </div>
             
-            <div id="terminal-logs" class="space-y-2 h-64 overflow-y-hidden text-emerald-500 relative z-10 font-mono tracking-tight">
+            <div id="terminal-logs" class="space-y-2 h-48 overflow-y-hidden text-emerald-500 relative z-10 font-mono tracking-tight">
                 <div>[10:00:01] SYS: BOOT SEQUENCE INITIATED...</div>
                 <div>[10:00:03] SENSOR_ARRAY: MUX CALIBRATED (16 CHANNELS)</div>
                 <div>[10:00:05] SENSING: STABLE ATTRACTOR (λ = -0.40)</div>
@@ -51,15 +51,20 @@
             </div>
         </section>
 
-        <!-- Footer dipindah ke dalam card agar lebih rapi dan tidak menghalangi gambar -->
-        <footer class="text-center text-slate-400 bg-black/70 backdrop-blur-md border border-slate-800/50 rounded-xl p-6 shadow-xl">
+        <footer class="text-center text-slate-400 bg-black/70 backdrop-blur-md border border-slate-800/50 rounded-xl p-6 shadow-xl mb-4">
             <p class="text-xs tracking-widest uppercase mb-1">Corporate Inquiries: <span class="text-emerald-500 font-bold">steward@almizantech.com</span></p>
             <p class="text-[10px]">&copy; 2026 PT Al-Mizan Teknologi Inovatif. All Rights Reserved. | Jakarta Tech Hub</p>
         </footer>
+
+        <!-- RUANG KOSONG SINEMATIK: Gulir ke bawah untuk melihat alat! -->
+        <div class="h-[75vh] w-full flex flex-col items-center justify-end pb-12 opacity-50 pointer-events-none">
+            <div class="w-[1px] h-16 bg-gradient-to-b from-transparent to-slate-500 mb-2"></div>
+            <span class="text-[9px] tracking-widest uppercase text-slate-400">AMZ Hardware Node (Sumbing Site)</span>
+        </div>
+
     </div>
 
     <script>
-        // Simulasi Ticker Karbon
         let carbon = 12450.50;
         function updateStats() {
             carbon += (Math.random() * 0.05);
@@ -67,7 +72,6 @@
         }
         setInterval(updateStats, 2000);
 
-        // Simulasi Log Terminal Kriptografi
         const logs = document.getElementById('terminal-logs');
         
         function generateMockHash() {
@@ -82,6 +86,7 @@
             const timeString = now.toLocaleTimeString('id-ID', { hour12: false });
             const hash = generateMockHash();
             
+            // Data Tier I (Aman untuk publik, tidak membocorkan angka kelistrikan/EC)
             const messages = [
                 `NODE-01 HASH: ${hash.substring(0, 16)}... SECURED`,
                 `SENSING: STABLE ATTRACTOR (λ = -0.40)`,
@@ -100,7 +105,7 @@
             }
             
             logs.prepend(div);
-            if (logs.children.length > 10) logs.removeChild(logs.lastChild);
+            if (logs.children.length > 8) logs.removeChild(logs.lastChild);
         }
         
         setInterval(addLog, 2500);
