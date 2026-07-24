@@ -8,16 +8,17 @@
 </head>
 <body class="bg-black text-slate-300 font-mono text-[11px] md:text-sm relative min-h-screen overflow-x-hidden">
 
-    <!-- Latar Belakang Gambar: Fokus Mutlak ke Alat (Bawah), opacity tinggi -->
+    <!-- Latar Belakang Gambar: Fokus presisi di titik 75% dari atas (Area Kedua Kotak ESP) -->
     <div class="fixed inset-0 z-0 pointer-events-none bg-black">
-        <img src="Sumbing Site_AMZ Technology.jpg" alt="AMZ Hardware Node" class="w-full h-full object-cover object-bottom opacity-90" onerror="this.style.display='none'">
+        <img src="Sumbing Site_AMZ Technology.jpg" alt="AMZ Hardware Node" class="w-full h-full object-cover object-[50%_75%] opacity-90" onerror="this.style.display='none'">
     </div>
 
-    <!-- Gradien: Gelap di atas, sangat bening di bawah -->
+    <!-- Gradien: Gelap di atas, transparan di bawah agar alat terlihat jelas -->
     <div class="fixed inset-0 z-10 bg-gradient-to-b from-black via-black/50 to-transparent pointer-events-none"></div>
 
     <div class="relative z-20 max-w-4xl mx-auto p-6 md:p-8">
         
+        <!-- Navigasi -->
         <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-black/60 backdrop-blur-md border border-slate-700/50 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/50 transition-all mb-8 shadow-lg">
             ← Back to Landing
         </a>
@@ -34,6 +35,7 @@
             </div>
         </div>
 
+        <!-- Terminal Log -->
         <section class="bg-black/70 backdrop-blur-md border border-slate-800 rounded-xl p-6 shadow-2xl relative overflow-hidden mb-12">
             <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-3xl rounded-full pointer-events-none"></div>
             
@@ -45,25 +47,27 @@
             
             <div id="terminal-logs" class="space-y-2 h-48 overflow-y-hidden text-emerald-500 relative z-10 font-mono tracking-tight">
                 <div>[10:00:01] SYS: BOOT SEQUENCE INITIATED...</div>
-                <div>[10:00:03] SENSOR_ARRAY: MUX CALIBRATED (16 CHANNELS)</div>
+                <div>[10:00:03] SENSOR_ARRAY: HARDWARE CALIBRATED</div>
                 <div>[10:00:05] SENSING: STABLE ATTRACTOR (λ = -0.40)</div>
                 <div>[10:00:06] CRYPTO: HASH a1b2c3d4... VERIFIED & STORED</div>
             </div>
         </section>
 
+        <!-- Footer -->
         <footer class="text-center text-slate-400 bg-black/70 backdrop-blur-md border border-slate-800/50 rounded-xl p-6 shadow-xl mb-4">
             <p class="text-xs tracking-widest uppercase mb-1">Corporate Inquiries: <span class="text-emerald-500 font-bold">steward@almizantech.com</span></p>
             <p class="text-[10px]">&copy; 2026 PT Al-Mizan Teknologi Inovatif. All Rights Reserved. | Jakarta Tech Hub</p>
         </footer>
 
-        <!-- RUANG KOSONG SINEMATIK: Full layar untuk melihat alat! -->
-        <div class="h-screen w-full flex flex-col items-center justify-end pb-12 opacity-50 pointer-events-none">
-            <div class="w-[1px] h-24 bg-gradient-to-b from-transparent to-slate-500 mb-2"></div>
-            <span class="text-[9px] tracking-widest uppercase text-slate-400">AMZ Hardware Node (Sumbing Site) - Optical Link Active</span>
+        <!-- RUANG KOSONG SINEMATIK: Full layar untuk melihat alat secara utuh! -->
+        <div class="h-screen w-full flex flex-col items-center justify-start pt-12 opacity-50 pointer-events-none">
+            <div class="w-[1px] h-24 bg-gradient-to-t from-transparent to-slate-500 mt-2"></div>
+            <span class="text-[9px] tracking-widest uppercase text-slate-400 mt-4">AMZ Hardware Node (Sumbing Site) - Optical Link Active</span>
         </div>
 
     </div>
 
+    <!-- Script Logika -->
     <script>
         let carbon = 12450.50;
         function updateStats() {
@@ -86,7 +90,7 @@
             const timeString = now.toLocaleTimeString('id-ID', { hour12: false });
             const hash = generateMockHash();
             
-            // Data Tier I (Aman untuk publik, tidak membocorkan angka kelistrikan/EC)
+            // Data Tier I (Menyembunyikan angka EC/Rahasia Paten)
             const messages = [
                 `NODE-01 HASH: ${hash.substring(0, 16)}... SECURED`,
                 `SENSING: STABLE ATTRACTOR (λ = -0.40)`,
