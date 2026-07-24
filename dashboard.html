@@ -8,17 +8,17 @@
 </head>
 <body class="bg-black text-slate-300 font-mono text-[11px] md:text-sm relative min-h-screen">
 
-    <!-- Latar Belakang Gambar: Fokus ke bagian BAWAH (Hardware Edge Node) -->
+    <!-- Latar Belakang Gambar: Fokus ke BAWAH, Opacity ditingkatkan -->
     <div class="fixed inset-0 z-0 pointer-events-none">
-        <img src="Sumbing Site_AMZ Technology.jpg" alt="AMZ Hardware Node" class="w-full h-full object-cover object-bottom opacity-60" onerror="this.style.display='none'">
+        <img src="Sumbing Site_AMZ Technology.jpg" alt="AMZ Hardware Node" class="w-full h-full object-cover object-bottom opacity-90" onerror="this.style.display='none'">
     </div>
 
-    <!-- Overlay Gelap agar warna hijau teks terminal tetap terbaca jelas -->
-    <div class="fixed inset-0 z-10 bg-gradient-to-t from-black via-black/80 to-black/40 pointer-events-none"></div>
+    <!-- REVISI OVERLAY: Gelap di atas untuk teks, TRANSISI BENING ke bawah agar alat terlihat -->
+    <div class="fixed inset-0 z-10 bg-gradient-to-b from-black/95 via-black/60 to-transparent pointer-events-none"></div>
 
-    <div class="relative z-20 max-w-4xl mx-auto p-6 md:p-8">
+    <div class="relative z-20 max-w-4xl mx-auto p-6 md:p-8 pb-48"> <!-- Ditambah pb-48 agar ada ruang kosong di bawah untuk melihat alat -->
         
-        <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-black/50 backdrop-blur-md border border-slate-700/50 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/50 transition-all mb-8 shadow-lg">
+        <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-black/60 backdrop-blur-md border border-slate-700/50 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/50 transition-all mb-8 shadow-lg">
             ← Back to Landing
         </a>
         
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <section class="bg-black/80 backdrop-blur-lg border border-slate-800 rounded-xl p-6 shadow-2xl relative overflow-hidden">
+        <section class="bg-black/80 backdrop-blur-md border border-slate-800 rounded-xl p-6 shadow-2xl relative overflow-hidden mb-12">
             <!-- Dekorasi Efek Kaca -->
             <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-3xl rounded-full pointer-events-none"></div>
             
@@ -51,9 +51,10 @@
             </div>
         </section>
 
-        <footer class="mt-12 text-center text-slate-500 border-t border-slate-800/50 pt-8 bg-black/40 backdrop-blur-sm rounded-t-3xl pb-4">
-            <p class="text-xs tracking-widest uppercase">Corporate Inquiries: <span class="text-emerald-500 font-bold">steward@almizantech.com</span></p>
-            <p class="mt-2 text-[10px]">&copy; 2026 PT Al-Mizan Teknologi Inovatif. All Rights Reserved. | Jakarta Tech Hub</p>
+        <!-- Footer dipindah ke dalam card agar lebih rapi dan tidak menghalangi gambar -->
+        <footer class="text-center text-slate-400 bg-black/70 backdrop-blur-md border border-slate-800/50 rounded-xl p-6 shadow-xl">
+            <p class="text-xs tracking-widest uppercase mb-1">Corporate Inquiries: <span class="text-emerald-500 font-bold">steward@almizantech.com</span></p>
+            <p class="text-[10px]">&copy; 2026 PT Al-Mizan Teknologi Inovatif. All Rights Reserved. | Jakarta Tech Hub</p>
         </footer>
     </div>
 
@@ -81,26 +82,23 @@
             const timeString = now.toLocaleTimeString('id-ID', { hour12: false });
             const hash = generateMockHash();
             
-            // Variasi pesan log agar terlihat nyata seperti di ESP32
             const messages = [
                 `NODE-01 HASH: ${hash.substring(0, 16)}... SECURED`,
                 `SENSING: STABLE ATTRACTOR (λ = -0.40)`,
                 `UPLINK: TRANSMITTING TO SHADOW VAULT... OK`,
-                `MUX SCAN: HOLE 6 (SINGULARITY) EC = 1511 µS/cm`,
+                `SENSOR_ARRAY: BIO-MATRIX INTEGRITY NOMINAL`,
                 `dMRV: ATOMIC WITNESS APPENDED TO LEDGER`
             ];
             
             const randomMsg = messages[Math.floor(Math.random() * messages.length)];
             const div = document.createElement('div');
             
-            // Efek warna untuk pesan tertentu
-            if(randomMsg.includes('λ = -0.40') || randomMsg.includes('1511')) {
+            if(randomMsg.includes('λ = -0.40') || randomMsg.includes('INTEGRITY NOMINAL')) {
                 div.innerHTML = `[${timeString}] <span class="text-cyan-400">${randomMsg}</span>`;
             } else {
                 div.textContent = `[${timeString}] ${randomMsg}`;
             }
             
-            // Tambahkan di atas, hapus yang paling bawah jika lebih dari 10 baris
             logs.prepend(div);
             if (logs.children.length > 10) logs.removeChild(logs.lastChild);
         }
