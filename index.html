@@ -9,7 +9,8 @@
 <body class="bg-slate-950 text-slate-300 font-sans relative min-h-screen">
     
     <div class="fixed inset-0 z-0 pointer-events-none">
-        <img src="Sumbing Site_AMZ Technology.jpg" alt="Sumbing Site" class="w-full h-full object-cover opacity-80" onerror="this.style.display='none'">
+        <!-- PERBAIKAN GAMBAR: Menambahkan class 'object-top' agar puncak gunung tidak terpotong -->
+        <img src="Sumbing Site_AMZ Technology.jpg" alt="Sumbing Site" class="w-full h-full object-cover object-top opacity-80" onerror="this.style.display='none'">
     </div>
     
     <div class="fixed inset-0 z-10 bg-gradient-to-b from-slate-950/95 via-slate-950/30 to-slate-950/95 pointer-events-none"></div>
@@ -24,7 +25,7 @@
         <div class="bg-slate-900/50 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-slate-700/50 mb-8 text-left relative overflow-hidden">
             <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-3xl rounded-full pointer-events-none"></div>
             <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <span class="text-emerald-500"></span> Intellectual Property Status
+                <span class="text-emerald-500">#</span> Intellectual Property Status
             </h2>
             <div class="grid md:grid-cols-2 gap-6 relative z-10">
                 <div class="bg-slate-950/60 p-6 rounded-xl border border-emerald-900/50 hover:border-emerald-500/50 transition-colors">
@@ -40,15 +41,22 @@
         </div>
 
         <div class="bg-slate-900/50 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-slate-700/50 mb-12 text-left relative overflow-hidden">
-            <h2 class="text-2xl font-bold text-white mb-6">Strategic Roadmap</h2>
+            <h2 class="text-2xl font-bold text-white mb-6">IV. Strategic Roadmap</h2>
             <ul class="space-y-5 text-slate-300 relative z-10">
+                <!-- PERBAIKAN ROADMAP: Menambahkan poin Sumbing Site Deployment -->
                 <li class="flex gap-4 items-start">
-                    <span class="text-emerald-500 bg-emerald-500/10 p-1 rounded-full mt-0.5">
+                    <span class="text-emerald-500 bg-emerald-500/10 p-1 rounded-full mt-0.5 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                     </span> 
-                    <span class="font-medium text-white">dMRV Blockchain Integration <span class="text-slate-500 font-normal">(Atomic Witness)</span></span>
+                    <span class="font-medium text-white">PoC Sumbing Site Deployment <span class="text-emerald-400 font-normal text-[10px] ml-2 border border-emerald-500/30 px-2 py-0.5 rounded-full uppercase tracking-wider bg-emerald-900/20">Completed</span></span>
                 </li>
-                <li class="flex gap-4 items-start opacity-60">
+                <li class="flex gap-4 items-start">
+                    <span class="text-emerald-500 bg-emerald-500/10 p-1 rounded-full mt-0.5 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </span> 
+                    <span class="font-medium text-white">dMRV Blockchain Integration <span class="text-slate-400 font-normal">(Atomic Witness)</span></span>
+                </li>
+                <li class="flex gap-4 items-start opacity-50">
                     <span class="text-slate-600 bg-slate-800 p-1 rounded-full mt-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-width="2"></circle></svg>
                     </span> 
